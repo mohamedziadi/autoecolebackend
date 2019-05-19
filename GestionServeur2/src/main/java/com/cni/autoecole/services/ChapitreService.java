@@ -9,9 +9,9 @@ import com.cni.autoecole.model.MessageResponse;
 public interface ChapitreService {
   
 	
-	public MessageResponse save(Chapitre chapitre);
-	public MessageResponse update(Chapitre chapitre, int idChap);
-	public MessageResponse delete(int idChap);
-	public List<Chapitre> findAll();
+	 Chapitre save(Chapitre chapitre);
+	 Chapitre update(Chapitre chapitre, int idChap);
+	 MessageResponse delete(int idChap);
+	 List<Chapitre> findAll();
 	
 }

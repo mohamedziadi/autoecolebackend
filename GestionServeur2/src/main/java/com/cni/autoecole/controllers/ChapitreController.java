@@ -2,6 +2,7 @@ package com.cni.autoecole.controllers;
 
 import java.util.List;
 
+import com.cni.autoecole.entities.ChapitreAndCoursId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,17 +27,20 @@ public class ChapitreController{
 	@Autowired
 	private ChapitreService chapitreService;
 	
-@PostMapping("/save")
-public void save(@RequestBody Chapitre chapitre) {
-  // chapitre.setCours(new Cours(id,"ee","ee"));
-  chapitreService.save(chapitre);
+@PostMapping
+public Chapitre save(@RequestBody ChapitreAndCoursId chapitreAndCoursId) {
+    Chapitre chapitre = chapitreAndCoursId.getChapitre();
+    Cours cours = new Cours();
+    cours.setIdCrs(chapitreAndCoursId.getIdCrs());
+    chapitre.setCours(cours);
+ return chapitreService.save(chapitre);
 
 	}
 
-@PutMapping("/modif/{idChap}")
-public void update(@RequestBody Chapitre chapitre,@PathVariable int idChap ) {
+@PutMapping("/{idChap}")
+public Chapitre update(@RequestBody Chapitre chapitre,@PathVariable int idChap ) {
 //{chapitre.setCours(new Cours(id,"ee","ee"));
- chapitreService.update(chapitre,idChap);
+return chapitreService.update(chapitre,idChap);
  }
 
 @DeleteMapping("/delete/{idChap}")

@@ -25,15 +25,17 @@ public class ChapitreServiceImpl implements ChapitreService{
 
 	@Override
 	
-	public MessageResponse save(Chapitre chapitre) {
-		 chapitreRepository.save(chapitre);
-		return null;
+	public Chapitre save(Chapitre chapitre) {
+		return chapitreRepository.save(chapitre);
 	}
 
 	@Override
-	public MessageResponse update(Chapitre chapitre, int idChap) {
-		chapitreRepository.save(chapitre);
-		return null;
+	public Chapitre update(Chapitre chapitre, int idChap) {
+		Chapitre chapitre1 = chapitreRepository.getOne(idChap);
+		chapitre1.setNom(chapitre.getNom());
+		chapitre1.setDescription(chapitre.getDescription());
+
+		return 	chapitreRepository.save(chapitre1);
 		 }
 
 	

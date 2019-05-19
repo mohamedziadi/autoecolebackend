@@ -1,7 +1,9 @@
 package com.cni.autoecole.services.impl;
 
+import java.util.Arrays;
 import java.util.List;
 
+import com.cni.autoecole.entities.Chapitre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +22,9 @@ public class CoursServiceImpl implements CoursService{
 
 	@Override
 	//public MessageResponse save cours(Cours cours) {}
-	public void save(Cours cours) {
-		 coursRepository.save(cours);
-		
+	public Cours save(Cours cours) {
+	return	 coursRepository.save(cours);
+
 	}
 
 	@Override
@@ -45,13 +47,37 @@ public class CoursServiceImpl implements CoursService{
 	public List<Cours> findAll() {
 		 return (List<Cours>) coursRepository.findAll();		
 	}
+
 	@Override
 	public Cours findCoursById(long idCrs){
-	 return coursRepository.findById(idCrs).get();
-	}
+	    Cours cours = getCours(idCrs);
+
+        return cours;
 	}
 
-	
+	@Override
+	public Chapitre addChapitre(Chapitre chapitre, long idCrs){
+		Cours cours = getCours(idCrs);
+		if (cours.getChapitres().isEmpty()) {
+			cours.setChapitres(Arrays.asList(chapitre));
+		} else {
+			cours.getChapitres().add(chapitre);
+		}
+		coursRepository.save(cours);
+		return chapitre;
+	}
+
+	private Cours getCours(long idCrs) {
+		Cours cours =  new Cours();
+		cours.setIdCrs(coursRepository.getOne(idCrs).getIdCrs());
+		cours.setNom(coursRepository.getOne(idCrs).getNom());
+		cours.setDescription(coursRepository.getOne(idCrs).getDescription());
+		cours.setChapitres(coursRepository.getOne(idCrs).getChapitres());
+		return cours;
+	}
+}
+
+
 
 	
 
