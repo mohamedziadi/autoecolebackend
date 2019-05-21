@@ -50,7 +50,12 @@ public void delete(@PathVariable (value = "idChap") int idChap){
 @GetMapping
 public List<Chapitre> findAll(){
 	return  chapitreService.findAll();}
-		
 
-	
+
+@GetMapping("/get-by-id-cours/{idCrs}")
+public List<Chapitre> findAllByIdCours(@PathVariable long idCrs){
+    return chapitreService.getAllByIdCours(idCrs);
+}
+
+
 }

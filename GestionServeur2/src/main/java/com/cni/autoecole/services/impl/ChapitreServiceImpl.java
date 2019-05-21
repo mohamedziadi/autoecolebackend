@@ -45,8 +45,15 @@ public class ChapitreServiceImpl implements ChapitreService{
 		return null;
 
 	}
-		
-	}
+
+    @Override
+    public List<Chapitre> getAllByIdCours(long idCrs){
+
+   return  chapitreRepository.findAllByCoursId(idCrs);
+    }
+
+
+}
 
 
 
