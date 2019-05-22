@@ -40,9 +40,8 @@ public class ChapitreServiceImpl implements ChapitreService{
 
 	
 	@Override
-	public MessageResponse delete(int idChap) {
+	public void delete(int idChap) {
 		chapitreRepository.deleteById(idChap);
-		return null;
 
 	}
 

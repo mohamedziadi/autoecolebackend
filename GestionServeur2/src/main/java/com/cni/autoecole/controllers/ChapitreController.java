@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.cni.autoecole.entities.ChapitreAndCoursId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,9 +44,11 @@ public Chapitre update(@RequestBody Chapitre chapitre,@PathVariable int idChap )
 return chapitreService.update(chapitre,idChap);
  }
 
-@DeleteMapping("/delete/{idChap}")
-public void delete(@PathVariable (value = "idChap") int idChap){
-	 chapitreService.delete(idChap);}
+@DeleteMapping("/{idChap}")
+public ResponseEntity<?> delete(@PathVariable (value = "idChap") int idChap){
+	 chapitreService.delete(idChap);
+    return ResponseEntity.ok().build();
+}
 
 @GetMapping
 public List<Chapitre> findAll(){
