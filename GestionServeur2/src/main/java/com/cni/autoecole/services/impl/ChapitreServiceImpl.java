@@ -49,7 +49,7 @@ public class ChapitreServiceImpl implements ChapitreService{
     @Override
     public List<Chapitre> getAllByIdCours(long idCrs){
 
-   return  chapitreRepository.findAllByCoursId(idCrs);
+   return  chapitreRepository.findAllByCoursIdCrs(idCrs);
     }
 
 

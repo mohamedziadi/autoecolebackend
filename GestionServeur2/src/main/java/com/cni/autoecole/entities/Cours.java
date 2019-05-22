@@ -4,13 +4,9 @@ package com.cni.autoecole.entities;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Entity
@@ -21,7 +17,9 @@ public class Cours implements Serializable {
 	private long idCrs;
 	private String description;
 	private String nom;
-	@OneToMany(mappedBy="cours")
+
+	@JsonIgnoreProperties("cours")
+	@OneToMany(mappedBy="cours",cascade = CascadeType.REMOVE)
 	private List<Chapitre> chapitres;
 	
 }

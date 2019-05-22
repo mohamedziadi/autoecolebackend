@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 @Entity
@@ -22,6 +24,8 @@ public class Chapitre implements Serializable {
 
 	private String nom;
 	private String description;
+
+	@JsonIgnoreProperties("chapitres")
     @ManyToOne
 	private Cours cours;
 	@OneToMany(mappedBy = "chapitre")

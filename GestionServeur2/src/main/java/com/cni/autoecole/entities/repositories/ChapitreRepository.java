@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ChapitreRepository extends JpaRepository<Chapitre,Integer>{
 
-    @Query(value = "SELECT chap FROM Chapitre chap where id = :id")
-    List<Chapitre> findAllByCoursId(long id);
+    //@Query(value = "SELECT chap FROM Chapitre chap where id = :id")
+    List<Chapitre> findAllByCoursIdCrs(long idc);
 
 }
