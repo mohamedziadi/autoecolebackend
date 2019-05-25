@@ -1,27 +1,14 @@
 package com.cni.autoecole.controllers;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.cni.autoecole.entities.Admin;
 import com.cni.autoecole.entities.AutoEcole;
 import com.cni.autoecole.entities.Candidat;
 import com.cni.autoecole.entities.Code;
-import com.cni.autoecole.entities.Inscription;
-import com.cni.autoecole.entities.Moniteur;
 import com.cni.autoecole.model.MessageResponse;
 import com.cni.autoecole.services.CodeService;
-import com.cni.autoecole.services.InscriptionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/code")
@@ -40,9 +27,10 @@ public MessageResponse save(@RequestBody Code code) {
 			}
 	
 	
-	@PutMapping("/{id}")
-	public MessageResponse update(@RequestBody Code code,@PathVariable long id ) {
-		return codeService.save(code);
+	@PutMapping
+	public MessageResponse update(@RequestBody Code code) {
+
+		return codeService.update(code);
 		 }
 	
 	@DeleteMapping("/{id}")
@@ -62,7 +50,25 @@ public MessageResponse save(@RequestBody Code code) {
 		inscription.setId(id);
 		return InscriptionService.findByInscription(inscription);
 	} */
-	
+
+	@GetMapping("/{idAutoEcole}")
+	public List<Code> findAll(@PathVariable("idAutoEcole") long id) {
+		AutoEcole autoEcole = new AutoEcole ();
+		autoEcole .setId(id);
+		return codeService.findByAutoEcole(autoEcole);
+	}
+	@GetMapping("/candidat/{cin}")
+	public List<Code> findAll(@PathVariable("cin") String cin) {
+		Candidat candidat = new Candidat ();
+		candidat .setCin(cin);
+		return codeService.findByCandidat(candidat);
+	}
+
+	@GetMapping("/etat/{etat}")
+	public List<Code> findByEtat(@PathVariable("etat") String etat) {
+
+		return codeService.findByEtat(etat);
+	}
 	}
 	
 

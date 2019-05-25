@@ -2,12 +2,7 @@ package com.cni.autoecole.services;
 
 import java.util.List;
 
-import com.cni.autoecole.controllers.SeanceController;
-import com.cni.autoecole.entities.Admin;
-import com.cni.autoecole.entities.AutoEcole;
 import com.cni.autoecole.entities.Candidat;
-import com.cni.autoecole.entities.Chapitre;
-import com.cni.autoecole.entities.Moniteur;
 import com.cni.autoecole.entities.Seance;
 import com.cni.autoecole.model.MessageResponse;
 

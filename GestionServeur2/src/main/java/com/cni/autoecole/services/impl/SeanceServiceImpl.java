@@ -2,21 +2,13 @@ package com.cni.autoecole.services.impl;
 
 import java.util.List;
 
+import com.cni.autoecole.entities.Seance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cni.autoecole.controllers.SeanceController;
-import com.cni.autoecole.entities.AutoEcole;
 import com.cni.autoecole.entities.Candidat;
-import com.cni.autoecole.entities.Chapitre;
-import com.cni.autoecole.entities.Moniteur;
-import com.cni.autoecole.entities.Seance;
-import com.cni.autoecole.entities.repositories.CandidatRepository;
-import com.cni.autoecole.entities.repositories.MoniteurRepository;
 import com.cni.autoecole.entities.repositories.SeanceRepository;
 import com.cni.autoecole.model.MessageResponse;
-import com.cni.autoecole.services.AutoEcoleService;
-import com.cni.autoecole.services.CandidatService;
 import com.cni.autoecole.services.SeanceService;
 
 @Service

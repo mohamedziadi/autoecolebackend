@@ -2,10 +2,7 @@ package com.cni.autoecole.services;
 
 import java.util.List;
 
-import com.cni.autoecole.entities.AutoEcole;
-import com.cni.autoecole.entities.Code;
-import com.cni.autoecole.entities.Inscription;
-import com.cni.autoecole.entities.Moniteur;
+import com.cni.autoecole.entities.*;
 import com.cni.autoecole.model.MessageResponse;
 
 public interface CodeService {
@@ -13,11 +10,14 @@ public interface CodeService {
 	public MessageResponse update(Code code);
 	public MessageResponse delete(long id);
 	public List<Code> findAll();
+	public List<Code>findByAutoEcole( AutoEcole autoEcole);
+	public List<Code>findByCandidat( Candidat candidat);
+	public List<Code>findByEtat( String etat);
 
 	//public List<Code> findByInscription(Inscription inscription);
 
 
-	
-	
-	
+
+
+
 }

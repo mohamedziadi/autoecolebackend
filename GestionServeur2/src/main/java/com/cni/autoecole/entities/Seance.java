@@ -1,24 +1,10 @@
 package com.cni.autoecole.entities;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-
-import javax.persistence.Basic;
-import javax.persistence.DiscriminatorColumn;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import lombok.Data;
 
 @Entity
 @Data
@@ -32,9 +18,7 @@ public class Seance implements Serializable {
 	@Basic
 	@Temporal(TemporalType.DATE)
 	private Date date;
-	
-	
-	
+	private String etat;
 	private String place;
 	private String prix;
 	private String nbHoraire;
@@ -45,11 +29,7 @@ public class Seance implements Serializable {
 	@Basic
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
-/*    @OneToOne
-	private Planification planification;*/
-    @ManyToOne()
-	private  Inscription inscription;
-
-
+	@ManyToOne
+	private Inscription inscription;
 }
 
