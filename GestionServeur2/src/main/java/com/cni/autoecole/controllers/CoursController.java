@@ -18,17 +18,17 @@ import com.cni.autoecole.services.CoursService;
 public class CoursController {
 	@Autowired
 	private CoursService coursService;
-@PostMapping
-public Cours save(@RequestBody Cours cours) {
-	  coursService.save(cours);
-	return cours;
-		}
+	@PostMapping
+	public Cours save(@RequestBody Cours cours) {
+		coursService.save(cours);
+		return cours;
+	}
 
 	@PutMapping("/{idCrs}")
 	public Cours update(@RequestBody Cours cours,@PathVariable long idCrs ) {
-	//{chapitre.setCours(new Cours(id,"ee","ee"));
-    return	coursService.update(cours,idCrs);
-	 }
+		//{chapitre.setCours(new Cours(id,"ee","ee"));
+		return	coursService.update(cours,idCrs);
+	}
 
 	@PatchMapping ("/{idCrs}")
 	public Chapitre addChapitre(@RequestBody Chapitre chapitre, @PathVariable long idCrs ) {
@@ -38,12 +38,13 @@ public Cours save(@RequestBody Cours cours) {
 
 	@DeleteMapping("/{idCrs}")
 	public ResponseEntity<?> delete(@PathVariable (value = "idCrs") long idCrs){
-	    coursService.delete(idCrs);
-	    return ResponseEntity.ok().build();
+		coursService.delete(idCrs);
+		return ResponseEntity.ok().build();
 	}
 
 	@GetMapping("/list")
 	public List<Cours> findAll(){
+
 		return  coursService.findAll();}
 
 
@@ -52,7 +53,7 @@ public Cours save(@RequestBody Cours cours) {
 		return coursService.findCoursById(idCrs);
 
 	}
-	}
+}
 
 
 

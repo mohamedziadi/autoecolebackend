@@ -15,18 +15,18 @@ public class Seance implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	@Basic
+
 	@Temporal(TemporalType.DATE)
 	private Date date;
 	private String etat;
 	private String place;
 	private String prix;
 	private String nbHoraire;
-	private int nbSeanceAtteint;
-	@Basic
+
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date CreatedAt;
-	@Basic
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
 	@ManyToOne

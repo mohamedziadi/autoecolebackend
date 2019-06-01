@@ -21,7 +21,7 @@ public class UserController {
 
 	@PutMapping
 	public MessageResponse changePassword(@RequestBody VerifyPassword verifyPassword) { // Spring convertira le JSON
-																			// publication
+		// publication
 		return userService.changePassword(verifyPassword);
 	}
 
@@ -29,9 +29,9 @@ public class UserController {
 	public User getUserByUsername(@PathVariable String username) {
 		return userService.findByUsername(username);
 	}
-	
+
 	@GetMapping("/disconnect/{username}")
 	public void deconnexion(@PathVariable String username) {
-		 userService.deconnect(username);
+		userService.deconnect(username);
 	}
 }

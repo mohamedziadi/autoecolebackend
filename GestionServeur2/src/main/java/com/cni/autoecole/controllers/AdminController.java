@@ -39,7 +39,7 @@ public class AdminController {
 		return adminService.update(admin);
 
 	}
-	
+
 
 	@DeleteMapping("/{cin}")
 	public MessageResponse delete(@PathVariable("cin") String cin) {
@@ -48,7 +48,7 @@ public class AdminController {
 
 	}
 
-     
+
 	@GetMapping
 	public List<Admin> findAll() {
 		return adminService.findAll();

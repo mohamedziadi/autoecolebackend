@@ -28,22 +28,21 @@ public class Examen  implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
-	private String categorie;
+	@Temporal(TemporalType.DATE)
+	private Date date;
 	private int numConvocation;
 	private String centreExamen;
 	private int fraisInscription;
 	private String resultat;
+	private String etat;
 
-	@Basic
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date date;
-
-	@Basic
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date CreatedAt;
-	@Basic
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedAt;
+
+
 	@ManyToOne
 	private Inscription inscription;
 }

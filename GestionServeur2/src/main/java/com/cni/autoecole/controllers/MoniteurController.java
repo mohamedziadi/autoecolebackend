@@ -34,26 +34,26 @@ public class MoniteurController {
 		return moniteurService.save(moniteur);
 
 	}
-	@PreAuthorize("ROLE_Gerant")
+	@PreAuthorize("hasRole('ROLE_Gerant')")
 	@PutMapping // upadate
 	public MessageResponse update(@RequestBody Moniteur moniteur) {
 
 		return moniteurService.update(moniteur);
 
 	}
-	@PreAuthorize("ROLE_Gerant")
+	@PreAuthorize("hasRole('ROLE_Gerant')")
 	@DeleteMapping("/{cin}")
 	public MessageResponse delete(@PathVariable("cin") String cin) {
 
 		return moniteurService.delete(cin);
 
 	}
-	
+
 	@GetMapping("/{idAuto}")
 	public List<Moniteur> findAll(@PathVariable("idAuto") long id) {
 		AutoEcole autoEcole = new AutoEcole();
 		autoEcole.setId(id);
 		return moniteurService.findByAutoEcole(autoEcole);
 	}
-	
+
 }

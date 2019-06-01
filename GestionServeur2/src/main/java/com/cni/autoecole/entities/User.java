@@ -62,7 +62,7 @@ public class User implements Serializable, UserDetails {
 	@Transient
 	@Override
 	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubt
 		return true;
 	}
 

@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import com.cni.autoecole.entities.Code;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -41,10 +42,18 @@ public MessageResponse delete(long id) {
 	return new MessageResponse(true, "Opération effectuée avec succès");
 }
 
-@Override
+	/*@Override
+	public List<AutoEcole> findByGerant(Boolean gerant) {
+		return null;
+	}*/
+
+
+	@Override
 public List<AutoEcole> findAll() {
 	// TODO Auto-generated method stub
 	return autoEcoleRepository.findAll();
+
+
 }
 
 

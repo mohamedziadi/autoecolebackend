@@ -37,14 +37,18 @@ public class SecretaireController {
 		return secretaireService.save(secretaire);
 
 	}
-	@PreAuthorize("ROLE_Gerant")
-	@PutMapping // upadate
+	//@PreAuthorize("ROLE_Gerant")
+
+	@PutMapping //upadate
 	public MessageResponse update(@RequestBody Secretaire secretaire) {
 
 		return secretaireService.update(secretaire);
 
 	}
-	@PreAuthorize("ROLE_Gerant")
+
+
+
+	//@PreAuthorize("ROLE_Gerant")
 	@DeleteMapping("/{cin}")
 	public MessageResponse delete(@PathVariable("cin") String cin) {
 
